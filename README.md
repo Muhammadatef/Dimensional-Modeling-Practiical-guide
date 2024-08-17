@@ -16,6 +16,7 @@ This repository contains SQL schemas and example data for various types of dimen
 7. **Conformed Dimension**: Shared dimensions used across multiple fact tables.
 
 ## Schemas
+
 ```sql
 CREATE TABLE Customer_DimensionSCD1 (
     CustomerID INT PRIMARY KEY,
@@ -24,7 +25,7 @@ CREATE TABLE Customer_DimensionSCD1 (
     State VARCHAR(255),
     Country VARCHAR(255)
 );
-
+```
 ```sql
 CREATE TABLE Customer_DimensionSCD2 (
     CustomerSurrogateID SERIAL PRIMARY KEY,
@@ -37,6 +38,7 @@ CREATE TABLE Customer_DimensionSCD2 (
     EndDate DATE,
     IsCurrent CHAR(1)
 );
+```
 
 ```sql
 CREATE TABLE Customer_DimensionSCD3 (
@@ -48,6 +50,7 @@ CREATE TABLE Customer_DimensionSCD3 (
     Country VARCHAR(255),
     PreviousCity VARCHAR(255)
 );
+```
 
 ```sql
 CREATE TABLE Customer_DimensionSCD4 (
@@ -68,6 +71,7 @@ CREATE TABLE Customer_Historical_DimensionSCD4 (
     Country VARCHAR(255),
     ChangeDate DATE
 );
+```
 
 ```sql
 CREATE TABLE Order_Junk_Dimension (
@@ -75,6 +79,7 @@ CREATE TABLE Order_Junk_Dimension (
     OrderPriority VARCHAR(50),
     OrderType VARCHAR(50)
 );
+```
 
 ```sql
 Degenerate Dimension
@@ -86,6 +91,7 @@ CREATE TABLE Sales_Fact (
     SalesAmount DECIMAL(10, 2),
     SalesDate DATE
 );
+```
 
 ```sql
 Role-Playing Dimension
@@ -108,7 +114,7 @@ CREATE TABLE Sales_Fact (
     FOREIGN KEY (ShipDateID) REFERENCES Date_Dimension(DateID),
     FOREIGN KEY (DeliveryDateID) REFERENCES Date_Dimension(DateID)
 );
-
+```
 
 ```sql
 Outrigger Dimension
@@ -125,6 +131,7 @@ CREATE TABLE Customer_Dimension (
     LocationID INT,
     FOREIGN KEY (LocationID) REFERENCES Location_Dimension(LocationID)
 );
+```
 
 ```sql
 Conformed Dimension
