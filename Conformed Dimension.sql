@@ -1,6 +1,3 @@
-
-
-
 --Conformed Dimension
   --A Conformed Dimension is a dimension that is shared across multiple fact tables.
 
